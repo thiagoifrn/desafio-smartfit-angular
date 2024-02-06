@@ -5,6 +5,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { GetUnitsService } from '../../services/get-units.service';
 
 @Component({
   selector: 'app-forms',
@@ -17,9 +18,13 @@ export class FormsComponent implements OnInit {
   results = [];
   formGroup!: FormGroup;
 
-  constructor(private FormBuilder: FormBuilder) {}
+  constructor(
+    private FormBuilder: FormBuilder,
+    private unitService: GetUnitsService
+  ) {}
 
   ngOnInit(): void {
+    this.unitService.getAllUnits().subscribe((data) => console.log(data));
     this.formGroup = this.FormBuilder.group({
       hour: '',
       showClosed: false,
