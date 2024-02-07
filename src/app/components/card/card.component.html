@@ -3,13 +3,19 @@
     card.opened ? "Aberto" : "Fechado"
   }}</span>
   <h3>{{ card.title }}</h3>
-  <p>{{ card.content }}</p>
-  <hr />
+  <p [innerHTML]="card.content"></p>
+  <div class="divider"></div>
   <div class="legends">
-    <img src="../../../assets/images/png/partial-fountain.png" alt="" />
-    <img src="../../../assets/images/png/forbidden-fountain.png" alt="" />
-    <img src="../../../assets/images/png/partial-lockerroom.png" alt="" />
-    <img src="../../../assets/images/png/required-mask.png" alt="" />
+    <img [src]="'/assets/images/png/' + card.mask + '-mask.png'" alt="" />
+    <img [src]="'/assets/images/png/' + card.towel + '-towel.png'" alt="" />
+    <img
+      [src]="'/assets/images/png/' + card.fountain + '-fountain.png'"
+      alt=""
+    />
+    <img
+      [src]="'/assets/images/png/' + card.locker_room + '-lockerroom.png'"
+      alt=""
+    />
   </div>
   <ul>
     <li *ngFor="let schedule of card.schedules">
